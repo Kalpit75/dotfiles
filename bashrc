@@ -1,33 +1,30 @@
+######################################################################
 #
-# ~/.bashrc - startup file for Bash interactive shell
 #
-# Part of https://github.com/mloskot/archlinux-config
-# Mateusz Loskot <mateusz@loskot.net>
-# 
-# References:
-# - https://wiki.archlinux.org/index.php/Color_Bash_Prompt
-# - Debian standard ~/.bashrc
+#           ██████╗  █████╗ ███████╗██╗  ██╗██████╗  ██████╗
+#           ██╔══██╗██╔══██╗██╔════╝██║  ██║██╔══██╗██╔════╝
+#           ██████╔╝███████║███████╗███████║██████╔╝██║     
+#           ██╔══██╗██╔══██║╚════██║██╔══██║██╔══██╗██║     
+#           ██████╔╝██║  ██║███████║██║  ██║██║  ██║╚██████╗
+#           ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
 #
-# This file is sourced by all *interactive* bash shells on startup,
-# including some apparently interactive shells such as scp and rcp
-# that can't tolerate any output.  So make sure this doesn't display
-# anything or bad things will happen !
 #
-#echo "Sourcing ${HOME}/.bashrc..."
+######################################################################
 
-# Test for an interactive shell.  There is no need to set anything
-# past this point for scp and rcp, and it's important to refrain from
-# outputting anything in those cases.
+
 if [[ $- != *i* ]] ; then
 	# Shell is non-interactive.  Be done now!
 	return
 fi
 
 # default prompt
-#PS1='[\u@\h \W]\$ '
+#PS1='\u@\h:\w$ '
+PS1='\[\u@\h:\T:\w\$'
 
 #Pfetch
-pfetch 
+#fastfetch
+#pfetch 
+neofetch
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
@@ -119,5 +116,15 @@ alias l='ls -CF'
 # }}}
 
 #extra alias
-alias v='nvim'
-alias notes='nvim ~/notes'
+alias v='vim'
+alias notes='vim ~/notes'
+alias c='clear'
+alias x='exit'
+
+
+#xdg open
+alias open='xdg-open'
+alias ms="cd /home/grey/Desktop && open fourthSemCSIT.pdf"
+alias csit='cd /home/grey/Desktop/4thSem'
+
+#while sleep 1; do tput sc; tput cup 0 $(($(tput cols)-11)); echo -e "\e[32m`date +%r`\e[39m"; tput rc; done &
