@@ -25,6 +25,7 @@ PS1='\[\u@\h:\T:\w\$'
 #fastfetch
 #pfetch 
 neofetch
+#date
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
@@ -117,14 +118,17 @@ alias l='ls -CF'
 
 #extra alias
 alias v='vim'
-alias notes='vim ~/notes'
+alias nv='nvim'
 alias c='clear'
+alias cls='clear && ls'
 alias x='exit'
-
-
-#xdg open
-alias open='xdg-open'
-alias ms="cd /home/grey/Desktop && open fourthSemCSIT.pdf"
-alias csit='cd /home/grey/Desktop/4thSem'
-
+alias open='xdg-open'                                           #xdg-open -> open
+alias update='sudo dnf update'
+alias r='ranger'
+alias conf='v ~/.bashrc'
+alias proj='cd ~/projects/2025'
 #while sleep 1; do tput sc; tput cup 0 $(($(tput cols)-11)); echo -e "\e[32m`date +%r`\e[39m"; tput rc; done &
+. "$HOME/.cargo/env"
+
+#scripts
+alias weather='bash ~/.script/weather.sh'
